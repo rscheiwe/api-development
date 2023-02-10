@@ -2,9 +2,10 @@
 # API Development
 
 #### *ToC*
-[DoD](#dod)<br> 
+[DoD](#dod)<br>
 [Relevant Links](#relevant-links)<br>
-[Features](#features)<br> 
+[Features](#features)<br>
+[UX](#ux)<br>
 [API Overview](#api-overview)<br> 
 [Usage and Testing Instructions](#usage-and-testing-instructions)<br> 
 [Endpoints](#endpoints)<br>
@@ -50,6 +51,18 @@ Note: The bootstrapped data API is tangential to the main product but necessary 
 * Authentication and protected routes to ensure user-specific data
 * Task queuing and message brokering via Celery
 
+<a name="relevant-links"></a>
+## UX
+
+Hypothetical End-to-End Flow:
+
+1. The user authenticates
+2. The user enters her addresss in the relevant form on the frontend
+3. The form sends the address to Main API endpoint `/genesis-properties/user-property-details-external`
+4. The endpoint calls the third-party API (HomeBird API) to run the address against the available data
+5. HomeBird API sends response to Main API with house details, specifically Sewer System
+6. Main API sends response to frontend
+7. Given the response from HomeBird API, the frontend may prompt the user based on info provided by HomeBird API
 
 <a name="api-overview"></a>
 ## API Overview
@@ -132,7 +145,7 @@ MAIN API-xCLIENT: Prompt is delivered based on features
 		- `external_source`: Specific third-part API to leverage (note, only HouseCanary, aka HomeBird, is wired)  
 		- `verbosity`: Specify whether all details (`verbose`) should be returned or just sewer system-related details (`sewer_system`)
 	- Then click "Execute"
-	- The response contains the specified level of details for the *currently authenticated* properties
+	- The response contains the specified level of details for the *currently authenticated* user
 
 ### For local dev and testing
 Note: The SQLite DB is already seeded. 
