@@ -194,13 +194,25 @@ Run `docker-compose up -d --build` from root
 <a name="next-steps"></a>
 ## Next Steps
 
+*Ranked in order from Necessary to Nice-to-haves*
+
 **Stabilize Deployment for High Availability and Scale**
 * Focus on load balancing and K8s (most likely), auto scaling (ASGs)
 * Runtime monitoring services (e.g., Grafana)
 * Data replication for proposed new data ingestion jobs (see below)
 
+**Refactoring Auth Flow**
+* Add an API gateway 
+* Refactor custom-build (non-production) Auth flow
+
 **Third-party Redundancy**
 * Ensure API's SLA uptime by securing redundant third-party sources of data
+
+**Data Consumption**
+* Add DB-inserts to Task Queuing (Celery/RabbitMQ) for any and all data pulled from third-party sources
+
+**Testing Coverage for Main API**
+* Refactor project for better TDD focus
 
 **In-house Data Source**
 * Weigh pros/cons of developing data lake for housing data via:
@@ -212,14 +224,3 @@ Run `docker-compose up -d --build` from root
 * POC machine-learning classification model to predict sewer system based on user-input
 	* 1m rows of data from an above method provides enough raw material for Naive Bayes or K-Nearest Neighbors
 	* Sewer systems tend to be specific to geography, e.g., which is a strong feature to use for classification
-
-**Refactoring Auth Flow**
-* Add an API gateway 
-* Refactor custom-build (non-production) Auth flow
-
-**Data Consumption**
-* Add DB-inserts to Task Queuing (Celery/RabbitMQ) for any and all data pulled from third-party sources
-
-**Testing Coverage for Main API**
-* Refactor project for TDD focus
-
