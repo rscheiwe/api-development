@@ -194,9 +194,10 @@ Run `docker-compose up -d --build` from root
 <a name="next-steps"></a>
 ## Next Steps
 
-**Stabilize Deployment for Scale**
+**Stabilize Deployment for High Availability and Scale**
 * Focus on load balancing and K8s (most likely), auto scaling (ASGs)
 * Runtime monitoring services (e.g., Grafana)
+* Data replication for proposed new data ingestion jobs (see below)
 
 **Third-party Redundancy**
 * Ensure API's SLA uptime by securing redundant third-party sources of data
@@ -213,6 +214,7 @@ Run `docker-compose up -d --build` from root
 	* Sewer systems tend to be specific to geography, e.g., which is a strong feature to use for classification
 
 **Refactoring Auth Flow**
+* Add an API gateway 
 * Refactor custom-build (non-production) Auth flow
 
 **Data Consumption**
