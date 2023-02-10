@@ -26,6 +26,8 @@ The source of the information is a third-party API which must be abstracted behi
 
 **Main Product**
 * [Main API Repository](https://github.com/rscheiwe/genesis-homes) - *local dev and deployment instructions in README*
+* [Deployed Swagger Docs](https://genesis-homes.herokuapp.com/docs)
+* [Deployed URL](https://genesis-homes.herokuapp.com/)
 
 **Bootstrapped Data API** (aka, third-party vendor)
 * [Bootstrapped Data API Repository](https://github.com/rscheiwe/homebird) (*HomeBird*, a HouseCanary mock)
@@ -67,19 +69,6 @@ MAIN API-xCLIENT: Prompt is delivered based on features
 <a name="usage-and-testing-instructions"></a>
 ## Usage and Testing Instructions
 
-Note: The SQLite DB is already seeded. 
-
-1. Pull down [repo](https://github.com/rscheiwe/genesis-homes)
-2. Start a virtual environment
-3. Run `python install -r requirements.txt`
-4. Run `uvicorn main:app --reload --workers 1 --host 0.0.0.0 --port 8002`
-
-The Swagger UI will run at `0.0.0.0:8002/docs` for usage and testing purposes.
-
-*Alternatively, if you have Docker Desktop installed:*
-
-Run `docker-compose up -d --build` from root
-
 ### Two user stories are available:
 *	[Admin](#admin) 
 	*	`username`: `admin`
@@ -92,7 +81,7 @@ Run `docker-compose up -d --build` from root
 <a name="admin"></a>
 #### Admin
 
-1. Authenticate via lock icon in Swagger
+1. Authenticate via lock icon in [Swagger](https://genesis-homes.herokuapp.com/docs)
 	- `username`: **`admin`**
 	- `password`: **`string`** (the word "string")
 2. Now, all endpoints are accessible to try out
@@ -114,7 +103,7 @@ Run `docker-compose up -d --build` from root
 <a name="user"></a>
 #### User
 
-1. Authenticate via lock icon in Swagger
+1. Authenticate via lock icon in [Swagger](https://genesis-homes.herokuapp.com/docs)
 	- `username`: **`alice`**
 	- `password`: **`string`** (the word "string")
 	- Note: Any username specified above works with the password `string`. *Each user is assigned their own property*.
@@ -142,6 +131,20 @@ Run `docker-compose up -d --build` from root
 		- `verbosity`: Specify whether all details (`verbose`) should be returned or just sewer system-related details (`sewer_system`)
 	- Then click "Execute"
 	- The response contains the specified level of details for the *currently authenticated* properties
+
+### For local dev and testing
+Note: The SQLite DB is already seeded. 
+
+1. Pull down [repo](https://github.com/rscheiwe/genesis-homes)
+2. Start a virtual environment
+3. Run `python install -r requirements.txt`
+4. Run `uvicorn main:app --reload --workers 1 --host 0.0.0.0 --port 8002`
+
+The Swagger UI will run at `0.0.0.0:8002/docs` for usage and testing purposes.
+
+*Alternatively, if you have Docker Desktop installed:*
+
+Run `docker-compose up -d --build` from root
 
 <a name="endpoints"></a>
 ## Endpoints
