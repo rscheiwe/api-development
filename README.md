@@ -18,7 +18,7 @@ A feature-detection API to provide specific information regarding a client's hou
 
 * E.g., "We detect your home's **sewer system** is a **septic tank**. Do you have up-to-date insurance for the septic system?"
 
-The source of the house features is a third-party API (HomeBird) which must be abstracted behind Main API and should allow for swapping out the current third-party API for another potentially. 
+The source of the house features is a third-party API (HomeBird) which *must be abstracted behind the intermediary Main API* and should allow for swapping out the current third-party API for another potentially. 
 
 > *To quickly review the PM's requested feature for a single user, please jump down to the <a href="#user">user</a> user story, and move through to Point 5.*
 
@@ -146,6 +146,13 @@ MAIN API-xCLIENT: Prompt is delivered based on features
 		- `verbosity`: Specify whether all details (`verbose`) should be returned or just sewer system-related details (`sewer_system`)
 	- Then click "Execute"
 	- The response contains the specified level of details for the *currently authenticated* user
+		- users `sarah` and `geri` have `"sewer_sytem": "septic"`, n.b. 
+```
+{
+  "property_address": "4553 Haley Stream Apt. 502, Lakinstad, MT 41214",
+  "sewer_system": "septic"
+}
+```
 
 ### For local dev and testing
 Note: The SQLite DB is already seeded. 
