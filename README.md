@@ -194,6 +194,10 @@ Run `docker-compose up -d --build` from root
 <a name="next-steps"></a>
 ## Next Steps
 
+**Stabilize Deployment for Scale**
+* Focus on load balancing and K8s (most likely), auto scaling (ASGs)
+* Runtime monitoring services (e.g., Grafana)
+
 **Third-party Redundancy**
 * Ensure API's SLA uptime by securing redundant third-party sources of data
 
