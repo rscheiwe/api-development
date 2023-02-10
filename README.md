@@ -17,7 +17,7 @@ A feature-detection API to provide specific information regarding a client's hou
 
 * E.g., "We detect your home's **sewer system** is a **septic tank**. Do you have up-to-date insurance for the septic system?"
 
-The source of the information is a third-party API which must be abstracted behind Company's API. 
+The source of the house features is a third-party API (HomeBird) which must be abstracted behind Main API and should allow for swapping out the current third-party API for another potentially. 
 
 > *To quickly review the PM's requested feature for a single user, please jump down to the <a href="#user">user</a> user story, and move through to Point 5.*
 
@@ -54,7 +54,9 @@ Note: The bootstrapped data API is tangential to the main product but necessary 
 <a name="api-overview"></a>
 ## API Overview
 
-Sewer system-detection flow for a single user via `/genesis-properties/user-property-details-external`
+`/genesis-properties/user-property-details-external` abstracts the logic that calls the third-party API (HomeBird) for house details, namely the sewer system detail.
+
+> Sewer system-detection flow for a single user via `/genesis-properties/user-property-details-external`
 
 ```mermaid
 sequenceDiagram
