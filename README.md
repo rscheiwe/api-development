@@ -92,6 +92,7 @@ MAIN API-xCLIENT: Prompt is delivered based on features
 	*	`username`:`john`
 	*	`username`:`sarah`
 	*	`username`:`geri`
+	*	`username`:`kevin`
 	
 <a name="admin"></a>
 #### Admin
@@ -122,6 +123,7 @@ MAIN API-xCLIENT: Prompt is delivered based on features
 	- `username`: **`alice`**
 	- `password`: **`string`** (the word "string")
 	- Note: Any username specified above works with the password `string`. *Each user is assigned their own property*.
+	- Note 2: `kevin` represents the 'unhappy path' when a user's address is not found at the external API
 2. Now, only endpoints ***scoped to authenticated user*** are accessible
 3. Try out: `/users`
 	- Open the  `/genesis-users/users` accordion
