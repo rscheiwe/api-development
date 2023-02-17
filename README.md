@@ -197,6 +197,11 @@ Run `docker-compose up -d --build` from root
 *Ranked in order from Necessary to Nice-to-haves*
 
 **Stabilize Deployment for High Availability and Scale**
+* The “real” first step is UAT with Product.
+* Use HTTP verbs in endpoints
+* Use HTTP response codes
+* Integrate Locust for load testing
+* Integrate versioning (v1)
 * Focus on load balancing and K8s (most likely), auto scaling (ASGs)
 * Runtime monitoring services (e.g., Grafana)
 * Data replication for proposed new data ingestion jobs (see below)
